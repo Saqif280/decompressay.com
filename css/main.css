@@ -12,7 +12,7 @@ form{
 }
 .content{
 	/*background-color: #F7F7F9;*/
-	background-image: url("http://saqif.com/3704/img/texture.png");
+	background-image: url("/img/texture.png");
 	max-width: 1200px;
 	margin: 15px auto;
 	padding: 40px;
