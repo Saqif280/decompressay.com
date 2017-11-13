@@ -7,10 +7,9 @@
   ga('send', 'pageview');
 
 $(document).ready(function(){
-	if(window.location.href.indexOf("saqif") > -1)
-	{
-	    window.location.replace("http://decompressay.com/login.php");
-	}
+	CKEDITOR.replace("input");
+	CKEDITOR.replace("newText");
+
 
 	var oldEssay;
 	var powerSet = 0;
@@ -20,10 +19,6 @@ $(document).ready(function(){
 	        if (!( CKEDITOR.instances.input.getData() == "undefined" || CKEDITOR.instances.input.getData() == ""))
 	        {
 	            oldText = CKEDITOR.instances.input.getData();
-	        }
-	        else
-	        {
-	            oldText = "You did not enter anything in!";
 	        }
 	        
 	        var space1 = '<span style="font-size:1px;"> </span>';
@@ -124,20 +119,20 @@ $(document).ready(function(){
 	);
 
 	$("#clear").click(
-	function() {
-	CKEDITOR.instances.input.setData("");
-	}
+		function() {
+			CKEDITOR.instances.input.setData("");
+		}
 	);
 
 	function selectText(containerid) {
-	        if (document.selection) {
-	            var range = document.body.createTextRange();
-	            range.moveToElementText(document.getElementById(containerid));
-	            range.select();
-	        } else if (window.getSelection) {
-	            var range = document.createRange();
-	            range.selectNode(document.getElementById(containerid));
-	            window.getSelection().addRange(range);
-	        }
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(document.getElementById(containerid));
+      range.select();
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(document.getElementById(containerid));
+      window.getSelection().addRange(range);
+    }
 	}
 });

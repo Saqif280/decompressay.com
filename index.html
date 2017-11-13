@@ -1,84 +1,75 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>DecomprEssay</title>
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="ckeditor/ckeditor.js"></script>
+<title>DecomprEssay</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Saqif Badruddin">
+<!-- favicon -->
 
-    <link rel="stylesheet" href="css/main.css">
+<!-- normalize -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" />
+<!-- fonts -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+<!-- font awesome -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- bs3 grid -->
+<link href="css/grid12.css" rel="stylesheet" type="text/css">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<!-- rich text editor -->
+<script src="ckeditor/ckeditor.js"></script>
+<!-- my resources -->
+<link href="css/main.css?v1" rel="stylesheet" type="text/css">
+<script src="js/main.js?v1" type="text/javascript"></script>
 </head>
 <body>
-
-<div class="content">
-<h1>Welcome to DecomprEssay!</h1>
-<br>
-
-<div class="card">
-      <div class="card-block">
-        <h3 class="card-title">DecomprEssay artificially inflates your essay word count by undetectably splitting words. Paste your text below and increase your word count up to 500%!</h3>
-        <p class="card-text">Check out my other projects by clicking the button below</p>
-        <a href="http://saqif.com" class="btn btn-success">Visit saqif.com</a>
+<input id="strength" type="number" name="points" min="0" max="40" step="5" value="1" hidden>
+<div class="container-fluid section-hero">
+  <div class="content">
+    <h1>DecomprEssay</h1>
+    <p>Increase any essay length. In seconds.</p>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="col-md-6">
+    <div class="input-card card1">
+      <div class="card-thumb">
+        <p>Put your text in here</p>
       </div>
-    </div>
-<p class="description"></p>
-
-<div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">Special Characters</h3>
-        <p class="card-text">Special characters are not handled well (characters on keyboard should work)</p>
+      <textarea id="input">
+      </textarea>
+      <div class="card-joint">
+      </div>
+      <div class="bg-poly1">
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">Word Rolling</h3>
-        <p class="card-text">Since words are split, formatting may cause words to roll over page: combat this by going through text and manually ending line</p>
+  <div class="col-md-6">
+    <div class="input-card card2">
+      <div class="card-thumb">
+        <p>Out it comes here ... but longer!</p>
       </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">Document Editing</h3>
-        <p class="card-text">Avoid editing decompressed essay (Do not change font-size after your essay has been decompressed)</p>
+      <textarea disabled id="newText">
+      </textarea>
+      <div class="card-joint">
+      </div>
+      <div class="bg-poly1">
       </div>
     </div>
   </div>
 </div>
-
-<hr>
-<h3>Paste your text below:</h3>
-
-<textarea id="input" rows="10" cols="80">
-</textarea>
-<script>CKEDITOR.replace("input");</script>
-</br>
-<div class="alert alert-warning" role="alert">Make sure to read through all instructions before submitting!</div>
-
-<form>
-  Strength:
-  <input id="strength" type="number" name="points"
-   min="0" max="40" step="5" value="10"> (The lower the strength value, the higher the word count)
-</form>
-
-<button id="submit" class="btn btn-primary">Submit</button>
-<button id="clear" class="btn btn-secondary">Clear Input</button>
-</br>
-</br>
-
-<h3>Your Decompressed Text: </h3>
-<textarea disabled id="newText" rows="10" cols="80">
-</textarea>
-<script>CKEDITOR.replace("newText");</script>
+<div class="bg-poly2">
+  <div class="container-fluid section-footer">
+    <div class="content">
+      <h2>Did this tool help?</h2>
+      <p>Support my work by checking out <a href="http://saqif.com" target="_blank">saqif.com</a></p>
+    </div>
+  </div>
 </div>
-
-<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
